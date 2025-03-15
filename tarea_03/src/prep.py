@@ -38,31 +38,13 @@ def procesar_datos(df):
     df = df.copy()  # Crear una copia del DataFrame para evitar modificar el original
 
     # Lista de columnas de interés
-    columnas_interes = ['SalePrice', 
-                        'MSSubClass', 
-                        'LotArea', 
-                        'OverallQual',
-                        'OverallCond', 
-                        'YearBuilt', 
-                        'YearRemodAdd', 
-                        'MasVnrArea', 
-                        'BsmtFinSF1',
-                        'BsmtUnfSF',
-                        'TotalBsmtSF', 
-                        '1stFlrSF', 
-                        '2ndFlrSF',
-                        'GrLivArea', 
-                        'BsmtFullBath', 
-                        'FullBath',
-                        'HalfBath', 
-                        'BedroomAbvGr', 
-                        'TotRmsAbvGrd',
-                        'Fireplaces', 
-                        'GarageYrBlt', 
-                        'GarageCars', 
-                        'GarageArea', 
-                        'WoodDeckSF',
+    columnas_interes = ['SalePrice', 'MSSubClass', 'LotArea', 'OverallQual', 'OverallCond', 'YearBuilt', 
+                        'YearRemodAdd', 'MasVnrArea', 'BsmtFinSF1', 'BsmtUnfSF', 'TotalBsmtSF', '1stFlrSF', 
+                        '2ndFlrSF', 'GrLivArea', 'BsmtFullBath', 'FullBath', 'HalfBath', 'BedroomAbvGr', 
+                        'TotRmsAbvGrd', 'Fireplaces', 'GarageYrBlt', 'GarageCars', 'GarageArea', 'WoodDeckSF', 
                         'OpenPorchSF'] 
+                        #'MSZoning', 'LotShape', 'LotConfig', 'Neighborhood', 'ExterQual', 
+                        #'BsmtQual', 'BsmtExposure', 'BsmtFinType1', 'KitchenQual', 'GarageFinish']
 
     try:
         # Verificar qué columnas están disponibles en el DataFrame
