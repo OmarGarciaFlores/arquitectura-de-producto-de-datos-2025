@@ -5,16 +5,17 @@ FROM continuumio/miniconda3
 WORKDIR /app
 
 # Copiar los archivos necesarios
-COPY inference.py .
-COPY src ./src   
-COPY docker/environment.yml .
+COPY src /app/src
+COPY data /app/data   
+COPY models /app/models
+COPY docker/environment.yml /app/environment.yml
 
 # Crear el entorno Conda dentro del contenedor
 RUN conda env create -f environment.yml && conda clean --all -y
 
 # Establecer el entorno Conda como predeterminado
-ENV PATH /opt/conda/envs/arquitectura/bin:$PATH
+ENV PATH="/opt/conda/envs/arquitectura/bin:$PATH"
 
 # Definir el comando de ejecución
-ENTRYPOINT ["python", "inferencias.py"]
+ENTRYPOINT ["python", "src/inferencias.py"]
 

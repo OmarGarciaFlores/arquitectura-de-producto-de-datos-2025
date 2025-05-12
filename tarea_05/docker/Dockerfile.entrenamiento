@@ -4,16 +4,17 @@ FROM continuumio/miniconda3
 # Configurar el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copiar los archivos necesarios desde el contexto de construcción
-COPY train.py .
-COPY data ./data
-COPY docker/environment.yml .
+# Copiar todos los archivos del proyecto manteniendo la estructura
+COPY src /app/src
+COPY data /app/data
+COPY models /app/models
+COPY docker/environment.yml /app/environment.yml
 
 # Crear el entorno Conda dentro del contenedor
 RUN conda env create -f environment.yml && conda clean --all -y
 
 # Establecer el entorno Conda como predeterminado
-ENV PATH /opt/conda/envs/arquitectura/bin:$PATH
+ENV PATH="/opt/conda/envs/arquitectura/bin:$PATH" 
 
 # Definir el comando de ejecución
-ENTRYPOINT ["python", "entrenamiento.py"]
+ENTRYPOINT ["python", "src/entrenamiento.py"]

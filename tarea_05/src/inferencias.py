@@ -13,7 +13,7 @@ def preparar_datos(test, target_column='SalePrice'):
     y_test = test[target_column]
     return X_test, y_test
 
-def cargar_modelo(filename="model.joblib"):
+def cargar_modelo(filename="models/model.joblib"):
     """Carga el modelo desde un archivo .joblib."""
     return joblib.load(filename)
 
@@ -28,7 +28,7 @@ def evaluar_modelo(y_test, y_pred):
     return mae, rmse
 
 def main():
-    test = cargar_datos("../data/prep_test.csv")
+    test = cargar_datos("data/prep_test.csv")
     X_test, y_test = preparar_datos(test)
     
     model = cargar_modelo()
